@@ -6,6 +6,7 @@ module.exports = {
   entry: {
     index: "./index.js",
     list: "./list.js",
+    edit: "./edit.js",
 
   },
   output: {
@@ -53,7 +54,11 @@ module.exports = {
       filename: "list.html",
     }),
 
-
+    new HtmlWebpackPlugin({
+      template: "./edit.html",
+      chunks: ["edit", "main"],
+      filename: "edit.html",
+    }),
   ],
   devServer: {
     static: "./dist",
