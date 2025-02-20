@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: {
     index: "./index.js",
+    list: "./list.js",
 
   },
   output: {
@@ -16,7 +17,7 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", {
-          loader: "sass-loader",  
+          loader: "sass-loader",
           options: {
             sassOptions: {
               // quietDeps: true,
@@ -45,6 +46,14 @@ module.exports = {
       chunks: ["index", "main"],
       filename: "index.html",
     }),
+
+    new HtmlWebpackPlugin({
+      template: "./list.html",
+      chunks: ["list", "main"],
+      filename: "list.html",
+    }),
+
+
   ],
   devServer: {
     static: "./dist",
