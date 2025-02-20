@@ -16,4 +16,5 @@ FROM nginx
 COPY --from=builder ./app/dist /usr/share/nginx/html
 
 # EXPOSE ??
+EXPOSE 80
 
